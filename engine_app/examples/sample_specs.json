@@ -1,0 +1,8 @@
+[
+ {"headline": "BILLIONS INTO *AI*", "layout": "hero_scene", "objects": [{"prop": "building", "label": "AI", "motion": "float"}, {"prop": "chip", "label": "", "motion": "pulse"}], "hero": {"pose": "right_up", "motion": "bob"}, "link": "coins", "chart": null, "callout": null},
+ {"headline": "UNDER *SCRUTINY*", "layout": "center", "objects": [{"prop": "eye", "label": "regulators", "motion": "float"}], "hero": null, "link": "none", "chart": null, "callout": null},
+ {"headline": "REVENUE *DOUBLED*", "layout": "chart", "objects": [], "hero": null, "link": "none", "chart": {"kind": "compare", "ratio": 2}, "callout": "$115.8B"},
+ {"headline": "THE *SEC* PROBE", "layout": "split", "objects": [{"prop": "newspaper", "label": "Reuters", "motion": "float"}, {"prop": "magnifier", "label": "SEC", "motion": "pulse"}], "hero": null, "link": "arrow", "chart": null, "callout": null},
+ {"headline": "THE *MONEY* LOOP", "layout": "flow", "objects": [{"prop": "building", "label": "AI firm", "motion": "float"}, {"prop": "chip", "label": "chip maker", "motion": "pulse"}, {"prop": "cloud", "label": "cloud", "motion": "float"}], "hero": null, "link": "loop", "chart": null, "callout": null},
+ {"headline": "REAL, NOT *GUARANTEED*", "layout": "hero_center", "objects": [{"prop": "rocket", "label": "AI is real", "motion": "float"}, {"prop": "question", "label": "", "motion": "pulse"}, {"prop": "moneybag", "label": "profit?", "motion": "float"}], "hero": {"pose": "shrug", "motion": "bob"}, "link": "none", "chart": null, "callout": null}
+]

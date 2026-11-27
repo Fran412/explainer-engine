@@ -1,0 +1,643 @@
+[
+ {
+  "headline": "ELON IS *FAR* AHEAD",
+  "layout": "split",
+  "objects": [
+   {
+    "prop": "trophy",
+    "label": "Elon Musk",
+    "motion": "float"
+   },
+   {
+    "prop": "person",
+    "label": "2nd richest",
+    "motion": "bounce"
+   }
+  ],
+  "hero": null,
+  "link": "arrow",
+  "chart": null,
+  "callout": null
+ },
+ {
+  "headline": "WHAT IF SOMEONE *CATCHES* UP?",
+  "layout": "hero_center",
+  "objects": [
+   {
+    "prop": "person",
+    "label": "Challenger",
+    "motion": "bounce"
+   },
+   {
+    "prop": "question",
+    "label": "",
+    "motion": "pulse"
+   },
+   {
+    "prop": "trophy",
+    "label": "Musk",
+    "motion": "float"
+   }
+  ],
+  "hero": {
+   "pose": "shrug",
+   "motion": "bob"
+  },
+  "link": "none",
+  "chart": null,
+  "callout": null
+ },
+ {
+  "headline": "POWERFUL *BUSINESSES*",
+  "layout": "row3",
+  "objects": [
+   {
+    "prop": "building",
+    "label": "",
+    "motion": "float"
+   },
+   {
+    "prop": "exclaim",
+    "label": "",
+    "motion": "pulse"
+   },
+   {
+    "prop": "building",
+    "label": "",
+    "motion": "float"
+   }
+  ],
+  "hero": null,
+  "link": "none",
+  "chart": null,
+  "callout": null
+ },
+ {
+  "headline": "THE *CONTENDERS*",
+  "layout": "hero_scene",
+  "objects": [
+   {
+    "prop": "magnifier",
+    "label": "",
+    "motion": "pulse"
+   }
+  ],
+  "hero": {
+   "pose": "fwd",
+   "motion": "bob"
+  },
+  "link": "none",
+  "chart": null,
+  "callout": null
+ },
+ {
+  "headline": "JEFF *BEZOS*",
+  "layout": "split",
+  "objects": [
+   {
+    "prop": "person",
+    "label": "Jeff Bezos",
+    "motion": "bounce"
+   },
+   {
+    "prop": "building",
+    "label": "Amazon",
+    "motion": "float"
+   }
+  ],
+  "hero": null,
+  "link": "arrow",
+  "chart": null,
+  "callout": null
+ },
+ {
+  "headline": "*BOOKSTORE* TO GIANT",
+  "layout": "row4",
+  "objects": [
+   {
+    "prop": "document",
+    "label": "Books",
+    "motion": "float"
+   },
+   {
+    "prop": "laptop",
+    "label": "E-commerce",
+    "motion": "pulse"
+   },
+   {
+    "prop": "cloud",
+    "label": "Cloud",
+    "motion": "float"
+   },
+   {
+    "prop": "car",
+    "label": "Logistics",
+    "motion": "bounce"
+   }
+  ],
+  "hero": null,
+  "link": "arrow",
+  "chart": null,
+  "callout": null
+ },
+ {
+  "headline": "AMAZON *WEB* SERVICES",
+  "layout": "split",
+  "objects": [
+   {
+    "prop": "building",
+    "label": "Companies",
+    "motion": "float"
+   },
+   {
+    "prop": "cloud",
+    "label": "AWS",
+    "motion": "pulse"
+   }
+  ],
+  "hero": null,
+  "link": "arrow",
+  "chart": null,
+  "callout": null
+ },
+ {
+  "headline": "BEZOS *WEALTH* RISES",
+  "layout": "chart",
+  "objects": [
+   {
+    "prop": "moneybag",
+    "label": "",
+    "motion": "float"
+   }
+  ],
+  "hero": null,
+  "link": "none",
+  "chart": {
+   "kind": "line_up"
+  },
+  "callout": null
+ },
+ {
+  "headline": "STILL A *LONG* WAY",
+  "layout": "split",
+  "objects": [
+   {
+    "prop": "rocket",
+    "label": "Bezos",
+    "motion": "float"
+   },
+   {
+    "prop": "trophy",
+    "label": "Musk",
+    "motion": "pulse"
+   }
+  ],
+  "hero": null,
+  "link": "arrow",
+  "chart": null,
+  "callout": null
+ },
+ {
+  "headline": "*PAGE* AND BRIN",
+  "layout": "row3",
+  "objects": [
+   {
+    "prop": "person",
+    "label": "Larry Page",
+    "motion": "bounce"
+   },
+   {
+    "prop": "building",
+    "label": "Google",
+    "motion": "pulse"
+   },
+   {
+    "prop": "person",
+    "label": "Sergey Brin",
+    "motion": "bounce"
+   }
+  ],
+  "hero": null,
+  "link": "none",
+  "chart": null,
+  "callout": null
+ },
+ {
+  "headline": "INFLUENTIAL *GOOGLE*",
+  "layout": "split",
+  "objects": [
+   {
+    "prop": "building",
+    "label": "Google",
+    "motion": "pulse"
+   },
+   {
+    "prop": "globe",
+    "label": "Earth",
+    "motion": "float"
+   }
+  ],
+  "hero": null,
+  "link": "arrow",
+  "chart": null,
+  "callout": null
+ },
+ {
+  "headline": "FOUR *ENGINES* OF GOOGLE",
+  "layout": "row4",
+  "objects": [
+   {
+    "prop": "tag",
+    "label": "Ads",
+    "motion": "pulse"
+   },
+   {
+    "prop": "laptop",
+    "label": "YouTube",
+    "motion": "float"
+   },
+   {
+    "prop": "phone",
+    "label": "Android",
+    "motion": "float"
+   },
+   {
+    "prop": "chip",
+    "label": "DeepMind",
+    "motion": "pulse"
+   }
+  ],
+  "hero": null,
+  "link": "none",
+  "chart": null,
+  "callout": null
+ },
+ {
+  "headline": "STILL OWN *ALPHABET*",
+  "layout": "split",
+  "objects": [
+   {
+    "prop": "person",
+    "label": "Founders",
+    "motion": "bounce"
+   },
+   {
+    "prop": "building",
+    "label": "Alphabet",
+    "motion": "pulse"
+   }
+  ],
+  "hero": null,
+  "link": "coins",
+  "chart": null,
+  "callout": null
+ },
+ {
+  "headline": "AI *PROFITS* LIFT FORTUNES",
+  "layout": "chart",
+  "objects": [
+   {
+    "prop": "chip",
+    "label": "Google AI",
+    "motion": "pulse"
+   }
+  ],
+  "hero": null,
+  "link": "none",
+  "chart": {
+   "kind": "line_up"
+  },
+  "callout": null
+ },
+ {
+  "headline": "PAGE IS *CLOSEST*",
+  "layout": "versus",
+  "objects": [
+   {
+    "prop": "person",
+    "label": "Larry Page",
+    "motion": "bounce"
+   },
+   {
+    "prop": "trophy",
+    "label": "Musk",
+    "motion": "float"
+   }
+  ],
+  "hero": null,
+  "link": "none",
+  "chart": null,
+  "callout": null
+ },
+ {
+  "headline": "MARK *ZUCKERBERG*",
+  "layout": "center",
+  "objects": [
+   {
+    "prop": "person",
+    "label": "Mark Zuckerberg",
+    "motion": "bounce"
+   }
+  ],
+  "hero": null,
+  "link": "none",
+  "chart": null,
+  "callout": null
+ },
+ {
+  "headline": "THE *META* EMPIRE",
+  "layout": "row4",
+  "objects": [
+   {
+    "prop": "phone",
+    "label": "Facebook",
+    "motion": "float"
+   },
+   {
+    "prop": "phone",
+    "label": "Instagram",
+    "motion": "pulse"
+   },
+   {
+    "prop": "phone",
+    "label": "WhatsApp",
+    "motion": "float"
+   },
+   {
+    "prop": "building",
+    "label": "Meta",
+    "motion": "pulse"
+   }
+  ],
+  "hero": null,
+  "link": "none",
+  "chart": null,
+  "callout": null
+ },
+ {
+  "headline": "BILLIONS OF *USERS*",
+  "layout": "split",
+  "objects": [
+   {
+    "prop": "globe",
+    "label": "Billions",
+    "motion": "float"
+   },
+   {
+    "prop": "moneybag",
+    "label": "Monetise",
+    "motion": "pulse"
+   }
+  ],
+  "hero": null,
+  "link": "coins",
+  "chart": null,
+  "callout": null
+ },
+ {
+  "headline": "AI AND *SMART* GLASSES",
+  "layout": "row3",
+  "objects": [
+   {
+    "prop": "chip",
+    "label": "AI",
+    "motion": "pulse"
+   },
+   {
+    "prop": "moneybag",
+    "label": "Investing",
+    "motion": "float"
+   },
+   {
+    "prop": "eye",
+    "label": "Smart glasses",
+    "motion": "float"
+   }
+  ],
+  "hero": null,
+  "link": "none",
+  "chart": null,
+  "callout": null
+ },
+ {
+  "headline": "META *WEALTH* CLIMBS",
+  "layout": "chart",
+  "objects": [
+   {
+    "prop": "moneybag",
+    "label": "",
+    "motion": "float"
+   }
+  ],
+  "hero": null,
+  "link": "none",
+  "chart": {
+   "kind": "bars_up"
+  },
+  "callout": null
+ },
+ {
+  "headline": "HERE'S THE *PROBLEM*",
+  "layout": "center",
+  "objects": [
+   {
+    "prop": "exclaim",
+    "label": "",
+    "motion": "pulse"
+   }
+  ],
+  "hero": null,
+  "link": "none",
+  "chart": null,
+  "callout": null
+ },
+ {
+  "headline": "MUSK AT *$823B*",
+  "layout": "chart",
+  "objects": [
+   {
+    "prop": "newspaper",
+    "label": "Forbes",
+    "motion": "float"
+   }
+  ],
+  "hero": null,
+  "link": "none",
+  "chart": {
+   "kind": "bars_up"
+  },
+  "callout": "$823B"
+ },
+ {
+  "headline": "BEZOS AND PAGE *TRAIL*",
+  "layout": "versus",
+  "objects": [
+   {
+    "prop": "person",
+    "label": "Bezos $365B",
+    "motion": "bounce"
+   },
+   {
+    "prop": "person",
+    "label": "Page $227B",
+    "motion": "bounce"
+   }
+  ],
+  "hero": null,
+  "link": "none",
+  "chart": null,
+  "callout": null
+ },
+ {
+  "headline": "THE *GAP* IS HUGE",
+  "layout": "chart",
+  "objects": [],
+  "hero": null,
+  "link": "none",
+  "chart": {
+   "kind": "compare",
+   "ratio": 2.25,
+   "labels": [
+    "Bezos",
+    "Musk"
+   ]
+  },
+  "callout": "$823B vs $365B"
+ },
+ {
+  "headline": "*TESLA* AND SPACEX",
+  "layout": "row3",
+  "objects": [
+   {
+    "prop": "car",
+    "label": "Tesla",
+    "motion": "float"
+   },
+   {
+    "prop": "moneybag",
+    "label": "Musk's wealth",
+    "motion": "pulse"
+   },
+   {
+    "prop": "rocket",
+    "label": "SpaceX",
+    "motion": "float"
+   }
+  ],
+  "hero": null,
+  "link": "none",
+  "chart": null,
+  "callout": null
+ },
+ {
+  "headline": "WHO IS *MOST* LIKELY?",
+  "layout": "hero_center",
+  "objects": [
+   {
+    "prop": "question",
+    "label": "",
+    "motion": "pulse"
+   },
+   {
+    "prop": "trophy",
+    "label": "Musk",
+    "motion": "float"
+   },
+   {
+    "prop": "person",
+    "label": "Rival",
+    "motion": "bounce"
+   }
+  ],
+  "hero": {
+   "pose": "shrug",
+   "motion": "bob"
+  },
+  "link": "none",
+  "chart": null,
+  "callout": null
+ },
+ {
+  "headline": "FOUR NAMES TO *WATCH*",
+  "layout": "row4",
+  "objects": [
+   {
+    "prop": "person",
+    "label": "Page",
+    "motion": "bounce"
+   },
+   {
+    "prop": "person",
+    "label": "Brin",
+    "motion": "bounce"
+   },
+   {
+    "prop": "person",
+    "label": "Bezos",
+    "motion": "bounce"
+   },
+   {
+    "prop": "person",
+    "label": "Zuckerberg",
+    "motion": "bounce"
+   }
+  ],
+  "hero": null,
+  "link": "none",
+  "chart": null,
+  "callout": null
+ },
+ {
+  "headline": "NO *GUARANTEED* PATH",
+  "layout": "center",
+  "objects": [
+   {
+    "prop": "cross",
+    "label": "No guarantee",
+    "motion": "pulse"
+   }
+  ],
+  "hero": null,
+  "link": "none",
+  "chart": null,
+  "callout": null
+ },
+ {
+  "headline": "2ND PLACE *ISN'T* FIRST",
+  "layout": "split",
+  "objects": [
+   {
+    "prop": "person",
+    "label": "In 2nd",
+    "motion": "bounce"
+   },
+   {
+    "prop": "trophy",
+    "label": "Finishes 1st?",
+    "motion": "pulse"
+   }
+  ],
+  "hero": null,
+  "link": "arrow",
+  "chart": null,
+  "callout": null
+ },
+ {
+  "headline": "THE *NEXT* RIVAL?",
+  "layout": "center",
+  "objects": [
+   {
+    "prop": "question",
+    "label": "Unknown rival",
+    "motion": "pulse"
+   }
+  ],
+  "hero": {
+   "pose": "fwd",
+   "motion": "bob"
+  },
+  "link": "none",
+  "chart": null,
+  "callout": null
+ }
+]

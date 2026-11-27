@@ -1,0 +1,13 @@
+# Why Nvidia Matters
+
+Imagine investing billions of dollars into artificial intelligence, building massive data centres, buying expensive computer chips, and betting that AI will change the world. Now imagine that one of the biggest companies supplying those chips suddenly finds itself under regulatory scrutiny.
+
+That's the situation surrounding Nvidia. When Microsoft, Google, Amazon and other technology giants want to build powerful AI systems, they need enormous computing power. That computing power comes largely from specialised processors called GPUs.
+
+In its third quarter of fiscal 2027, Nvidia reported revenue of $115.8 billion. That's more than double what it made during the same period a year earlier.
+
+On November 20, Reuters reported that the SEC was investigating potential accounting issues at Nvidia. An investigation does not mean a company has been found guilty of wrongdoing.
+
+Some AI companies receive financial support from other companies in the same ecosystem. That money goes round and round, and investors want to know how much demand is real.
+
+A company can be making record profits while investors still have serious questions about its future. The next phase of the AI boom may be decided by who can actually make money.

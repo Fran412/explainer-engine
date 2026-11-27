@@ -1,0 +1,6 @@
+pillow>=10.0
+requests>=2.31
+anthropic>=0.40
+resvg-py>=0.5
+# optional, faster on Linux/macOS (needs the Cairo system library):
+# cairosvg>=2.7
