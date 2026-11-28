@@ -24,6 +24,9 @@ except OSError:
     DATA = "/tmp/explainer_jobs"
     os.makedirs(DATA, exist_ok=True)
 MAX_CHARS = int(os.environ.get("MAX_SCRIPT_CHARS", "30000"))
+PROCS = max(1, min(int(os.environ.get("WORKER_PROCS", "1")), 8))   # parallel render processes (1 per CPU core; each needs ~300 MB RAM)
+AUDIO_CACHE = os.path.join(DATA, "_audio_cache")                  # voice clips are reused across jobs
+ID_RE = re.compile(r"[0-9a-f]{32}")
 FILES = {"video.mp4", "captions.srt", "voiceover.wav", "specs.json"}
 JOBS = {}
 RUN_LOCK = threading.Semaphore(1)   # one render at a time (CPU bound)
@@ -57,13 +60,46 @@ class JobIn(BaseModel):
     workers: Optional[int] = None
 
 
+def save_state(job_id):
+    j = JOBS.get(job_id)
+    if not j:
+        return
+    try:
+        with open(os.path.join(DATA, job_id, "state.json"), "w") as f:
+            json.dump({k: j.get(k) for k in ("status", "progress", "stage", "error", "log")}, f)
+    except OSError:
+        pass
+
+
+def recover():
+    """After a restart: reload finished/failed jobs, and mark interrupted ones as failed with a clear reason."""
+    for d in os.listdir(DATA):
+        p = os.path.join(DATA, d, "state.json")
+        if ID_RE.fullmatch(d) and os.path.exists(p):
+            try:
+                s = json.load(open(p))
+            except (OSError, ValueError):
+                continue
+            if s.get("status") in ("queued", "running"):
+                s.update(status="failed", stage="Failed", error=INTERRUPTED)
+            s.setdefault("log", [])
+            JOBS[d] = s
+
+
+INTERRUPTED = ("The worker restarted while rendering, which usually means it ran out of memory. "
+               "Check Render > Logs, use a bigger plan, and keep WORKER_PROCS=1.")
+
+
 def cleanup(max_age=24 * 3600):
     now = time.time()
     for d in os.listdir(DATA):
         p = os.path.join(DATA, d)
-        if os.path.isdir(p) and now - os.path.getmtime(p) > max_age:
+        if ID_RE.fullmatch(d) and os.path.isdir(p) and now - os.path.getmtime(p) > max_age:
             shutil.rmtree(p, ignore_errors=True)
             JOBS.pop(d, None)
+
+
+recover()
 
 
 def run_job(job_id, cmd, env):
@@ -71,6 +107,7 @@ def run_job(job_id, cmd, env):
     out = os.path.join(DATA, job_id)
     with RUN_LOCK:
         job.update(status="running", stage="Starting...")
+        save_state(job_id)
         scene_done = 0
         try:
             p = subprocess.Popen(cmd, cwd=ENGINE, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
@@ -84,18 +121,23 @@ def run_job(job_id, cmd, env):
                 if m:
                     job["progress"] = round(30 * int(m.group(1)) / int(m.group(2)))
                     job["stage"] = f"Voice {m.group(1)}/{m.group(2)}"
+                    save_state(job_id)
                 m = re.search(r"scene (\d+)/(\d+)", line)
                 if m:
                     scene_done += 1
                     job["progress"] = round(30 + 68 * scene_done / int(m.group(2)))
                     job["stage"] = f"Rendering {scene_done}/{m.group(2)}"
+                    save_state(job_id)
             p.wait()
             if p.returncode == 0 and os.path.exists(os.path.join(out, "video.mp4")):
                 job.update(status="done", progress=100, stage="Done")
+            elif p.returncode in (-9, 137):
+                job.update(status="failed", stage="Failed", error=INTERRUPTED)
             else:
                 job.update(status="failed", stage="Failed", error="\n".join(job["log"][-8:]))
         except Exception as e:  # noqa
             job.update(status="failed", stage="Failed", error=str(e))
+        save_state(job_id)
         os.utime(out, None)
 
 
@@ -132,7 +174,7 @@ def create(j: JobIn, x_token: str = Header(None)):
     os.makedirs(out)
     sp = os.path.join(out, "script.txt")
     open(sp, "w", encoding="utf-8").write(script)
-    cmd = [sys.executable, "-u", "run.py", sp, "--out", out, "--tts", j.provider, "--workers", str(max(1, min(j.workers or 2, 8)))]
+    cmd = [sys.executable, "-u", "run.py", sp, "--out", out, "--tts", j.provider, "--workers", str(PROCS), "--cache-dir", AUDIO_CACHE]
     if j.provider in ("fish", "elevenlabs"):
         if j.voice.strip():
             cmd += ["--voice", j.voice.strip()[:80]]
@@ -148,6 +190,7 @@ def create(j: JobIn, x_token: str = Header(None)):
     if j.limit:
         cmd += ["--limit", str(max(1, min(j.limit, 200)))]
     JOBS[job_id] = {"status": "queued", "progress": 0, "stage": "Queued", "log": [], "error": None, "created": time.time()}
+    save_state(job_id)
     threading.Thread(target=run_job, args=(job_id, cmd, os.environ.copy()), daemon=True).start()
     return {"id": job_id}
 
@@ -155,7 +198,7 @@ def create(j: JobIn, x_token: str = Header(None)):
 @app.get("/jobs/{job_id}")
 def status(job_id: str, x_token: str = Header(None)):
     auth(x_token)
-    if not re.fullmatch(r"[0-9a-f]{32}", job_id):
+    if not ID_RE.fullmatch(job_id):
         raise HTTPException(400, "bad id")
     out = os.path.join(DATA, job_id)
     job = JOBS.get(job_id)
@@ -163,7 +206,8 @@ def status(job_id: str, x_token: str = Header(None)):
         if os.path.exists(os.path.join(out, "video.mp4")):
             job = {"status": "done", "progress": 100, "stage": "Done", "log": [], "error": None}
         else:
-            raise HTTPException(404, "unknown job")
+            raise HTTPException(404, "Job not found. The worker most likely restarted (out of memory on a small plan) and lost it. "
+                                     "Check Render > Logs, use a bigger plan, and start again.")
     res = {k: job[k] for k in ("status", "progress", "stage", "error")}
     res["log"] = job["log"][-12:]
     res["downloads"] = []
