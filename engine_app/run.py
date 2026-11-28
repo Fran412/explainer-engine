@@ -57,6 +57,7 @@ def main():
     ap.add_argument("--limit", type=int, help="only the first N beats (for testing)")
     ap.add_argument("--fps", type=int, default=24)
     ap.add_argument("--workers", type=int)
+    ap.add_argument("--cache-dir", help="folder for cached voice clips (default: <out>/audio_cache)")
     ap.add_argument("--catalog", action="store_true")
     a = ap.parse_args()
     load_env()
@@ -86,7 +87,7 @@ def main():
     # 2) voice
     audio, durs = None, []
     if a.tts.lower() != "none":
-        eng = T.make(a.tts, os.path.join(a.out, "audio_cache"), a.voice, a.tts_model, a.speed)
+        eng = T.make(a.tts, a.cache_dir or os.path.join(a.out, "audio_cache"), a.voice, a.tts_model, a.speed)
         audio = []
         for i, b in enumerate(beats):
             prev = beats[i - 1]["text"] if i else ""
